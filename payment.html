@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway - Redstore</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="images/shoelogo.png" width="125px"></a>
+            </div>
+        </div>
+    </div>
+
+    <!------------------- Payment Gateway UI ------------------->
+    <div class="small-container payment-page">
+        <h2>Secure Payment</h2>
+        <p>Enter your payment details to complete the purchase.</p>
+
+        <form id="paymentForm">
+            <label for="cardholder">Cardholder Name:</label><br>
+            <input type="text" id="cardholder" name="cardholder" placeholder="Name on card" required><br><br>
+
+            <label for="cardnumber">Card Number:</label><br>
+            <input type="text" id="cardnumber" name="cardnumber" placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="19" required><br><br>
+
+            <label for="expiry">Expiry Date:</label><br>
+            <input type="text" id="expiry" name="expiry" placeholder="MM/YY" maxlength="5" required><br><br>
+
+            <label for="cvv">CVV:</label><br>
+            <input type="password" id="cvv" name="cvv" placeholder="XXX" maxlength="3" required><br><br>
+
+            <label for="payment-method">Payment Method:</label><br>
+            <select id="payment-method" name="payment-method" required>
+                <option value="credit-card">Credit Card</option>
+                <option value="debit-card">Debit Card</option>
+                <option value="net-banking">Net Banking</option>
+                <option value="upi">UPI</option>
+                <option value="wallet">Wallet</option>
+            </select><br><br>
+
+            <button type="button" class="btn" onclick="validateAndSubmit()">Pay Now</button>
+        </form>
+    </div>
+
+    <!------------------- Footer ------------------->
+    <div class="footer">
+        <div class="container">
+            <p class="copyright">Copyright WP MINI PROJECT</p>
+        </div>
+    </div>
+
+    <!------------------- JavaScript for Validation ------------------->
+    <script>
+        function validateAndSubmit() {
+            const cardholder = document.getElementById("cardholder").value.trim();
+            const cardnumber = document.getElementById("cardnumber").value.trim();
+            const expiry = document.getElementById("expiry").value.trim();
+            const cvv = document.getElementById("cvv").value.trim();
+
+            // Validate Cardholder Name
+            if (cardholder === "") {
+                alert("Cardholder name cannot be empty.");
+                return false;
+            }
+
+            // Validate Card Number (16 digits)
+            const cardRegex = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
+            if (!cardRegex.test(cardnumber)) {
+                alert("Please enter a valid card number in the format XXXX-XXXX-XXXX-XXXX.");
+                return false;
+            }
+
+            // Validate Expiry Date (MM/YY)
+            const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+            if (!expiryRegex.test(expiry)) {
+                alert("Please enter a valid expiry date in the format MM/YY.");
+                return false;
+            }
+
+            // Validate CVV (3 digits)
+            const cvvRegex = /^\d{3}$/;
+            if (!cvvRegex.test(cvv)) {
+                alert("Please enter a valid 3-digit CVV.");
+                return false;
+            }
+
+            // Simulate payment success
+            window.location.href = "payment-success.html";
+        }
+    </script>
+</body>
+</html>

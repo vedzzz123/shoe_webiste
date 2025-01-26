@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Redstore</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="images/shoelogo.png" width="125px"></a>
+            </div>
+        </div>
+    </div>
+
+    <!------------------- Checkout Section ------------------->
+    <div class="small-container checkout-page">
+        <h2>Checkout</h2>
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            <tr>
+                <td>Nike DUNKS</td>
+                <td>1</td>
+                <td>15000.00</td>
+            </tr>
+            <tr>
+                <td>Foam Runners</td>
+                <td>1</td>
+                <td>5000.00</td>
+            </tr>
+            <tr>
+                <td>Nike men tracks</td>
+                <td>1</td>
+                <td>1000.00</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: right;">Tax</td>
+                <td>500.00</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: right; font-weight: bold;">Total</td>
+                <td style="font-weight: bold;">21500.00</td>
+            </tr>
+        </table>
+
+        <h3>Billing Information</h3>
+        <form>
+            <label for="name">Full Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+
+            <label for="address">Address:</label><br>
+            <input type="text" id="address" name="address" placeholder="Enter your address" required><br><br>
+
+            <label for="card">Card Details:</label><br>
+            <input type="text" id="card" name="card" placeholder="Enter your card number" required><br><br>
+
+            <button type="button" class="btn" onclick="window.location.href='payment.html'">Place Order</button>
+        </form>
+    </div>
+
+    <!------------------- Footer ------------------->
+    <div class="footer">
+        <div class="container">
+            <p class="copyright">Copyright WP MINI PROJECT</p>
+        </div>
+    </div>
+</body>
+</html>
